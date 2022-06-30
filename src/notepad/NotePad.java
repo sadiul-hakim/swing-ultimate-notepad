@@ -386,13 +386,13 @@ public class NotePad extends JFrame implements ActionListener{
                String filename=fileChooser.getSelectedFile().getAbsolutePath().toString();
                if(!filename.endsWith(".txt")){
                    filename=filename+".txt";
-                   System.out.println(filename);
                }
                
                try{
                    
                    BufferedWriter writter=new BufferedWriter(new FileWriter(filename));
                    mainArea.write(writter);
+                   openedFile=new File(filename);
                }catch(Exception ex){
                    ex.printStackTrace();
                }                   
@@ -431,9 +431,9 @@ public class NotePad extends JFrame implements ActionListener{
                     }
 
                     try{
-
                         BufferedWriter writter=new BufferedWriter(new FileWriter(filename));
                         mainArea.write(writter);
+                        openedFile=new File(filename);
                     }catch(Exception ex){
                         ex.printStackTrace();
                     }                   
